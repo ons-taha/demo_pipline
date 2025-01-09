@@ -13,8 +13,8 @@ city                               LowCardinality(String),
 snap_shot                          Date Codec(DoubleDelta ,LZ4)
 )
 ENGINE = ReplicatedMergeTree('/clickhouse/tables/{database}/{shard}/{table}', '{replica}')
-PARTITION BY toYYYYMM(comparesion_time)
-ORDER BY (comparesion_time);
+PARTITION BY toYYYYMM(date_time)
+ORDER BY (date_time);
 
 
 CREATE TABLE datawarehouse.traunscation
